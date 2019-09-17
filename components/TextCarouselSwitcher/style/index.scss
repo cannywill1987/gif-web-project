@@ -1,0 +1,56 @@
+//@import "common/vars.scss";
+
+section {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.al-marquee {
+  width: 3.36rem;
+  margin: 0.05rem auto 0;
+  overflow: hidden;
+  background: #b22018;
+  border-radius: 0.46rem;
+}
+
+.al-marquee ul {
+  list-style: none;
+  padding: 0;
+}
+
+.al-marquee li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 0.4rem;
+  text-align: center;
+  font-size: 0.1rem;
+  color: white;
+  padding-left: 0.05rem;
+  .content {
+    //width: 0.82rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 0.2rem;
+  }
+  .time {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 0.16rem;
+    font-size: 0.11rem;
+    //font-family: $font-family-default;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    line-height: 0.14rem;
+    padding-right: 0.2rem;
+    text-align: left;
+  }
+}
+
+//.al-marqueeBox {
+//  position: absolute;
+//  top: 2.5rem;
+//}
