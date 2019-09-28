@@ -1,6 +1,6 @@
 import React from 'react'
-import {ThemeContext2} from '../../commons/ThemeContext2';
-import {ThemeContext} from '../../commons/ThemeContext';
+import {ThemeContext2} from '../../common/ThemeContext2';
+import {ThemeContext} from '../../common/ThemeContext';
 class ThemeTogglerButton3 extends React.Component {
     static contextType = ThemeContext;
 

@@ -1,7 +1,10 @@
 import App, {Container} from 'next/app'
 import React from 'react'
+// import store from '../redux/index'
+import {Provider} from 'react-redux';
+import withReduxStore from '../lib/with-redux-store'
 
-export default class MyApp extends App {
+class MyApp extends App {
     /**
      * APP的getInitialProps三个参数, Component要初始化渲染的组件 默认是Index.js
      * Component.getInitialProps 调用 Index.js 的静态getInitalProps方法把ctx传入
@@ -10,7 +13,7 @@ export default class MyApp extends App {
      * @param ctx
      * @returns {Promise<{pageProps}>}
      */
-    static async getInitialProps ({ Component, router, ctx }) {
+    static async getInitialProps({Component, router, ctx}) {
         let pageProps = {}
 
         if (Component.getInitialProps) {
@@ -20,6 +23,20 @@ export default class MyApp extends App {
         return {pageProps}
     }
 
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     if (nextProps.Component !== prevState.Component
+    //         || nextProps.pageProps !== prevState.pageProps
+    //         || nextProps.router !== prevState.router) {
+    //         return {
+    //             Component: nextProps.Component,
+    //             pageProps: nextProps.pageProps,
+    //             router: nextProps.router
+    //         };
+    //     }
+    //     return null;
+    // }
+
+
     constructor() {
         super();
     }
@@ -28,12 +45,19 @@ export default class MyApp extends App {
         console.error(error);
     }
 
-    render () {
+    render() {
         //Component这里是index.js
         //props这里是{posts: [{title: 12, body: '12'}]}
-        const {Component, pageProps} = this.props
+        const {Component, pageProps, router} = this.props
+        // title={RouterTitle[router.pathname]}
         return <Container>
-            <Component {...pageProps} />
+            {/*<Layout>*/}
+            {/*<Provider store={store}>*/}
+                <Component {...pageProps} />
+            {/*</Provider>*/}
+            {/*</Layout>*/}
         </Container>
     }
 }
+
+export default withReduxStore(MyApp)

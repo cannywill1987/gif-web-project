@@ -14,3 +14,9 @@ export function getDetailListByCid (params) {
     let obj = axios.get(url, {params: params});
     return obj;
 }
+
+export function getDetailListById (params) {
+    let url = getUrl(`dwgetDetailListById.html?pid=137413`);
+    let obj = axios.get(url, {params: params});
+    return obj;
+}

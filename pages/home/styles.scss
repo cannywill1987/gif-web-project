@@ -1,4 +1,8 @@
+@import "common/vars.scss";
+
 $font-size: 150px;
 .example {
+  transition: transform 1s;
   font-size: $font-size;
+  display: flex;
 }

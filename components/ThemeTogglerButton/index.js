@@ -1,5 +1,5 @@
 import React from 'react'
-import {ThemeContext} from '../../commons/ThemeContext';
+import {ThemeContext} from '../../common/ThemeContext';
 
 /**
  * 用于测试ThemeContext

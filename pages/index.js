@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom'
 import dynamic from 'next/dynamic'
 
 import Layout from '../layouts/Main';
-import {ThemeContext, themes} from '../commons/ThemeContext'
-import {ThemeContext2} from '../commons/ThemeContext2'
+import {ThemeContext, themes} from '../common/ThemeContext'
+import {ThemeContext2} from '../common/ThemeContext2'
 // import {getPosts} from '../api/posts'
 import Post from '../components/Post'
 import ThemeTogglerButton from '../components/ThemeTogglerButton'

@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
-import TextCarouselSwitcher from "../../components/TextCarouselSwitcher"
-import styles from "./styles.scss"
 import {getDetailListByCid} from '../../apis'
 import WaterfallLayout from "../../components/WaterfallLayout"
 import _ from "lodash"
-import { defaultProps, skinnyProps, fatProps } from './datas';
+import styles from "./styles.scss";
+import {connect} from 'react-redux';
 
 class IndexPage extends Component {
     state = {
@@ -42,7 +41,7 @@ class IndexPage extends Component {
         const {getDetailListByCid = []} = this.state;
         let datasToShow = [];
         _.forEach(getDetailListByCid, function (item) {
-            datasToShow.push({url:"http://pics.520qiubite.com/" + item.imgUrlBigQiniu,width:parseInt(item.width),height: parseInt(item.height), color: "#" + (parseInt(Math.random() * 16777215)).toString(16)});
+            datasToShow.push({url:"http://smallgif.520qiubite.com/80-" + item.imgUrlBigQiniu,width:parseInt(item.width),height: parseInt(item.height), color: "#" + (parseInt(Math.random() * 16777215)).toString(16)});
             // total.push({url:item.imgUrlSmallQiniu,width:item.width,height: item.height})
         })
 
@@ -53,7 +52,10 @@ class IndexPage extends Component {
             items: datasToShow 
         };
         return (
-            <WaterfallLayout {...defaultProps}/>
+            <>
+                <div className={styles["example"]}></div>
+                <WaterfallLayout {...defaultProps}/>
+            </>
         )
     }
 }
@@ -69,4 +71,12 @@ IndexPage.getInitialProps = async ({req}) => {
     }
 }
 
-export default IndexPage
+//链接方式 下面的key如datas其实就是props
+const mapState = (state) => ({
+})
+
+//下面这个更像是click执行的函数
+const mapDispatch = (dispatch) => ({})
+
+// export default connect(mapState, mapDispatch)(IndexPage)
+export default IndexPage;
