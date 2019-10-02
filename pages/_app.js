@@ -1,8 +1,13 @@
 import App, {Container} from 'next/app'
 import React from 'react'
-// import store from '../redux/index'
+import store from '../redux/index'
+// import {
+//     createStore,
+//     applyMiddleware,
+//     compose
+// } from "redux";
 import {Provider} from 'react-redux';
-import withReduxStore from '../lib/with-redux-store'
+// import withReduxStore from '../lib/with-redux-store'
 
 class MyApp extends App {
     /**
@@ -19,7 +24,7 @@ class MyApp extends App {
         if (Component.getInitialProps) {
             pageProps = await Component.getInitialProps(ctx)
         }
-        console.log('MyApp getInitialProps');
+        // console.log('MyApp getInitialProps');
         return {pageProps}
     }
 
@@ -52,12 +57,12 @@ class MyApp extends App {
         // title={RouterTitle[router.pathname]}
         return <Container>
             {/*<Layout>*/}
-            {/*<Provider store={store}>*/}
+            <Provider store={store}>
                 <Component {...pageProps} />
-            {/*</Provider>*/}
+            </Provider>
             {/*</Layout>*/}
         </Container>
     }
 }
 
-export default withReduxStore(MyApp)
+export default MyApp

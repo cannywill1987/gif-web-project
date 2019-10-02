@@ -44,7 +44,6 @@ export default class TextCarouselSwitcher extends React.Component {
   }
 
   componentDidMount() {
-    console.log("111111111111");
     this.startAnim(this);
     this.getRandomMobileMessages();
   }
@@ -109,7 +108,6 @@ export default class TextCarouselSwitcher extends React.Component {
       const speed = (targetPercent - percent) / 1000;
       let start = null;
       this.animate = timestamp => {
-        console.log("aaaaa");
         if (self.isComponentUnmount === true) return;
         if (!start) start = timestamp; //start为参考时间
         const progress = timestamp - start; //progress是当前进行的时间戳

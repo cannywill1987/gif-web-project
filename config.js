@@ -4,5 +4,5 @@
  */
 module.exports = {
   debug: true, //用于Localhost个人开发环境
-  mockPrefixUrl: "http://localhost:8888/topnews/topnews/", //testyapi时用到的api 在 Utility.js 的getUrl用上，用于假数据测试
+  mockPrefixUrl: "http://localhost:8065", //testyapi时用到的api 在 Utility.js 的getUrl用上，用于假数据测试
 };

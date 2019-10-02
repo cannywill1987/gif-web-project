@@ -161,3 +161,55 @@ export function getRandomMobiles(country, num, hideMiddlePart = false) {
     return getRandomPhMobles(num, hideMiddlePart);
   }
 }
+
+export function getValFromQuery(key = "") {
+    if (process.browser === false) return null;
+    let url = location.search; //获取url中"?"符后的字串
+    let theRequest = new Object();
+    if (url.indexOf("?") !== -1) {
+        let str = url.substr(1);
+        let strsSplitted = str.split("&");
+        for (let i = 0; i < strsSplitted.length; i++) {
+            theRequest[strsSplitted[i].split("=")[0]] = unescape(strsSplitted[i].split("=")[1]);
+        }
+    }
+    return theRequest[key];
+}
+
+
+// 获取cookie
+export function getCookie(key, rawCookie) {
+    if (process.browser) {
+        const name = key + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            const c = ca[i].trim();
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    } else if(rawCookie) {
+        const name = key + "=";
+        const ca = rawCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            const c = ca[i].trim();
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    return "";
+}
+
+// 设置cookie,默认是30天
+export function setCookie(key, value) {
+    if (!process.browser) return true;
+    const d = new Date();
+    d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + d.toGMTString();
+    document.cookie = key + "=" + value + "; " + expires;
+}
+
+
