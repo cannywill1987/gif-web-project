@@ -49,6 +49,6 @@
     "styled-components": "^5.0.0-beta.8"
   },
   "devDependencies": {
-    "next": "^9.0.2"
+    "next": "^9.3.2"
   }
 }
