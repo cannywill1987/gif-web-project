@@ -15,7 +15,7 @@
     "@zeit/next-sass": "^1.0.1",
     "antd": "^3.23.4",
     "autoprefixer": "^9.6.1",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "cssnano": "^4.1.10",
     "express": "^4.17.1",
     "install": "^0.13.0",
